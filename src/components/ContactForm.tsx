@@ -65,9 +65,7 @@ const ContactForm = () => {
     reset();
 
     // 🔄 Smooth auto-refresh after user sees toast
-    setTimeout(() => {
-      window.location.reload();
-    }, 2500);
+  
 
     // 2️⃣ Auto-reply (non-blocking)
     emailjs.send(
