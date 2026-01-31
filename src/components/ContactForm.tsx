@@ -35,6 +35,61 @@ const ContactForm = () => {
   });
   
   
+//   const onSubmit = async (data: ContactFormData) => {
+//   setIsSubmitting(true);
+
+//   const currentTime = new Date().toLocaleString();
+
+//   try {
+//     // 1️⃣ Send email to admin
+//     await emailjs.send(
+//       import.meta.env.VITE_EMAILJS_SERVICE_ID,
+//       import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+//       {
+//         name: data.name,
+//         email: data.email,
+//         phone: data.phone || 'N/A',
+//         subject: data.subject,
+//         message: data.message,
+//         time: currentTime,
+//       },
+//       import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+//     );
+
+//     // ✅ Success toast
+//     toast({
+//       title: 'Message Sent Successfully!',
+//       description: "We'll get back to you within 24 hours.",
+//     });
+
+//     reset();
+
+//     // 🔄 Smooth auto-refresh after user sees toast
+  
+
+//     // 2️⃣ Auto-reply (non-blocking)
+//     emailjs.send(
+//       import.meta.env.VITE_EMAILJS_SERVICE_ID,
+//       import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID,
+//       {
+//         name: data.name,
+//         email: data.email,
+//         message: data.message,
+//       },
+//       import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+//     ).catch(() => {});
+
+//   } catch (error) {
+//     toast({
+//       title: 'Failed to send message',
+//       description: 'Please try again later.',
+//       variant: 'destructive',
+//     });
+//   } finally {
+//     setIsSubmitting(false);
+//   }
+// };
+
   const onSubmit = async (data: ContactFormData) => {
   setIsSubmitting(true);
 
@@ -62,10 +117,11 @@ const ContactForm = () => {
       description: "We'll get back to you within 24 hours.",
     });
 
+    // Reset form
     reset();
 
-    // 🔄 Smooth auto-refresh after user sees toast
-  
+    // 🔝 Scroll back to top smoothly
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     // 2️⃣ Auto-reply (non-blocking)
     emailjs.send(
