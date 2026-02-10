@@ -57,13 +57,13 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Link to="/contact">
+            <Link to="https://ishinternship.vercel.app/">
               <Button
                 size="lg"
                 className="group bg-primary text-primary-foreground hover:bg-primary/90 glow-cyan font-semibold text-lg px-8 py-6"
               >
                 <Zap size={20} className="mr-2" />
-                Start Your Project
+                Start   Internship
                 <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
