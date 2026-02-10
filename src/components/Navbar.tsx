@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { ArrowRight, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Arrow } from '@radix-ui/react-tooltip';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -87,13 +88,18 @@ const Navbar = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="hidden md:block">
-          <Link to="/contact">
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 glow-cyan font-semibold">
-              Start a Project
-            </Button>
-          </Link>
-        </div>
+       <div className="hidden md:block">
+  <a
+    href="https://ishinternship.vercel.app/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 glow-cyan font-semibold">
+      Start Internship  <ArrowRight size={18} />
+    </Button>
+  </a>
+</div>
+
 
         {/* Mobile Menu Button */}
         <button
@@ -141,7 +147,7 @@ const Navbar = () => {
                 transition={{ delay: navLinks.length * 0.1 }}
                 className="pt-4"
               >
-                <Link to="/contact">
+                <Link to="https://ishinternship.vercel.app/">
                   <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold">
                     Start a Project
                   </Button>

@@ -29,6 +29,7 @@ const footerLinks = {
     { name: 'Web Development', path: '/training#web' },
     { name: 'Cybersecurity', path: '/training#security' },
     { name: 'UI/UX Design', path: '/training#design' },
+    { name: 'Internship ', path: 'https://ishinternship.vercel.app/' },
   ],
   resources: [
     { name: 'Blog', path: '/blog' },
