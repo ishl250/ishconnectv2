@@ -163,6 +163,7 @@
 
 // export default Navbar;
 
+
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
@@ -184,25 +185,21 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location]);
+  useEffect(() => setIsMobileMenuOpen(false), [location]);
 
   return (
     <motion.header
-      initial={{ y: -100 }}
+      initial={{ y: -120 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background/80 backdrop-blur-xl border-b border-border/50'
+          ? 'bg-background/90 backdrop-blur-xl border-b border-border/50'
           : 'bg-transparent'
       }`}
     >
@@ -220,7 +217,7 @@ const Navbar = () => {
           </motion.div>
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link key={link.path} to={link.path} className="relative group">
@@ -244,19 +241,22 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* CTA Buttons */}
+        {/* Desktop CTA Buttons */}
         <div className="hidden md:flex items-center gap-4">
           
-          {/* Join DevQueens */}
-          <a
+          {/* Join DevQueens - Rocket Animation */}
+          <motion.a
             href="https://devqueenstech.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
+            whileHover={{ y: -5, scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            animate={{ y: [0, -5, 0], transition: { repeat: Infinity, duration: 2 } }}
           >
-            <Button className="bg-pink-600 text-white hover:bg-pink-700 font-semibold">
-              Join DevQueens <ArrowRight size={18} />
+            <Button className="bg-pink-600 text-white hover:bg-pink-700 font-bold shadow-lg transform transition-all">
+              Join DevQueens 🚀
             </Button>
-          </a>
+          </motion.a>
 
           {/* Start Internship */}
           <a
@@ -271,7 +271,7 @@ const Navbar = () => {
 
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Toggle */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="md:hidden relative z-10 p-2 text-foreground"
@@ -279,6 +279,7 @@ const Navbar = () => {
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
+
       </nav>
 
       {/* Mobile Menu */}
@@ -322,19 +323,22 @@ const Navbar = () => {
               >
                 
                 {/* Join DevQueens */}
-                <a
+                <motion.a
                   href="https://devqueenstech.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
+                  whileHover={{ y: -5, scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  animate={{ y: [0, -5, 0], transition: { repeat: Infinity, duration: 2 } }}
                 >
-                  <Button className="w-full bg-pink-600 text-white hover:bg-pink-700 font-semibold">
+                  <Button className="w-full bg-pink-600 text-white hover:bg-pink-700 font-bold shadow-lg">
                     Join DevQueens 🚀
                   </Button>
-                </a>
+                </motion.a>
 
                 {/* Start Internship */}
                 <a
-                  href="https://www.linkedin.com/company/111448242/admin/dashboard"
+                  href="https://ishinternship.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
