@@ -90,7 +90,7 @@ const Navbar = () => {
         </div>
 
         {/* CTA Button */}
-       <div className="hidden md:block">
+       {/* <div className="hidden md:block">
   <a
     href="https://www.linkedin.com/company/ishconnect"
     target="_blank"
@@ -100,7 +100,7 @@ const Navbar = () => {
       Start Internship  <ArrowRight size={18} />
     </Button>
   </a>
-</div>
+</div> */}
 
 
         {/* Mobile Menu Button */}
