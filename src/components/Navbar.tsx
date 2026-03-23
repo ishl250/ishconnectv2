@@ -328,7 +328,7 @@ const Navbar = () => {
                   rel="noopener noreferrer"
                 >
                   <Button className="w-full bg-pink-600 text-white hover:bg-pink-700 font-semibold">
-                    Join DevQueens
+                    Join DevQueens 🚀
                   </Button>
                 </a>
 
